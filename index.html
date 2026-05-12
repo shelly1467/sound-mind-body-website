@@ -7,29 +7,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+
+  <header class="hero">
     <h1>Sound Mind & Body</h1>
     <p>Affirmation music for peace, healing, confidence, and abundance.</p>
+    <a href="#videos" class="button">Watch Videos</a>
   </header>
 
   <main>
-    <section>
+    <section id="videos">
       <h2>Featured YouTube Video</h2>
+      <p class="small-text">Replace the video ID inside script.js with your real YouTube video ID.</p>
 
-      <!-- Replace YOUR_VIDEO_ID with your YouTube video ID -->
-      <iframe 
-        width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
+      <div id="featured-video" class="video-box"></div>
+
+      <h2>More Affirmation Videos</h2>
+      <div id="video-gallery" class="video-grid"></div>
+    </section>
+
+    <section id="about">
+      <h2>About Sound Mind & Body</h2>
+      <p>
+        Sound Mind & Body creates uplifting affirmation music and inspirational videos
+        to help you feel calm, confident, powerful, and aligned.
+      </p>
+    </section>
+
+    <section id="shop">
+      <h2>Shop</h2>
+      <p>Affirmation products, digital downloads, and creative tools coming soon.</p>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Sound Mind & Body</p>
+    <p>© 2026 Sound Mind & Body. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>

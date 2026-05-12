@@ -27,13 +27,5 @@ function createVideo(video) {
   ;
 }
 
-const featuredVideo = document.querySelector("#featured-video");
-const videoGallery = document.querySelector("#video-gallery");
-
-if (featuredVideo) {
-  featuredVideo.innerHTML = createVideo(videos[0]);
-}
-
-if (videoGallery) {
-  videoGallery.innerHTML = videos.slice(1).map(createVideo).join("");
-}
+document.getElementById("featured-video").innerHTML = createVideo(videos[0]);
+document.getElementById("video-gallery").innerHTML = videos.slice(1).map(createVideo).join("");
