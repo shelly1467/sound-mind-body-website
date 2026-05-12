@@ -18,10 +18,26 @@ const moreVideos = [
   }
 ];
 
+function isPlaceholderId(videoId) {
+  return !videoId || videoId.includes("YOUR_");
+}
+
 function createVideoCard(video, isFeatured = false) {
   const videoId = video.id || "";
   const videoTitle = video.title || "Sound Mind & Body YouTube video";
   const cardClass = isFeatured ? "video-card featured-card" : "video-card";
+
+  if (isPlaceholderId(videoId)) {
+    return `
+      <article class="${cardClass}">
+        <div class="video-placeholder" role="img" aria-label="YouTube placeholder for ${videoTitle}">
+          <span class="play-symbol">▶</span>
+          <p>${videoTitle} coming soon</p>
+        </div>
+        <h3>${videoTitle}</h3>
+      </article>
+    `;
+  }
 
   return `
     <article class="${cardClass}">
@@ -41,5 +57,10 @@ function createVideoCard(video, isFeatured = false) {
 const featuredVideoArea = document.getElementById("featured-video");
 const videoGallery = document.getElementById("video-gallery");
 
-featuredVideoArea.innerHTML = createVideoCard(featuredVideo, true);
-videoGallery.innerHTML = moreVideos.map((video) => createVideoCard(video)).join("");
+if (featuredVideoArea) {
+  featuredVideoArea.innerHTML = createVideoCard(featuredVideo, true);
+}
+
+if (videoGallery) {
+  videoGallery.innerHTML = moreVideos.map((video) => createVideoCard(video)).join("");
+}
