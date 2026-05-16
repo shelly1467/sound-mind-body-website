@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" role="img" aria-labelledby="title desc">
+  <title id="title">Sound Mind &amp; Body logo</title>
+  <desc id="desc">A soft lotus logo with calming Sound Mind and Body text.</desc>
+  <rect width="900" height="220" fill="none"/>
+  <g transform="translate(20 20)">
+    <path d="M105 23 C72 42 52 76 49 112" fill="none" stroke="#c49a52" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+    <path d="M202 23 C235 42 255 76 258 112" fill="none" stroke="#c49a52" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+    <path d="M154 40 L160 57 L178 57 L164 67 L169 84 L154 74 L139 84 L144 67 L130 57 L148 57 Z" fill="#c49a52" opacity=".9"/>
+    <circle cx="154" cy="96" r="5" fill="#c49a52" opacity=".78"/>
+    <circle cx="154" cy="114" r="3" fill="#c49a52" opacity=".62"/>
+    <path d="M154 92 C142 124 128 154 93 164 C106 126 127 104 154 92Z" fill="#e8b7b1" opacity=".95"/>
+    <path d="M154 92 C166 124 180 154 215 164 C202 126 181 104 154 92Z" fill="#e8b7b1" opacity=".95"/>
+    <path d="M154 78 C130 110 120 147 154 171 C188 147 178 110 154 78Z" fill="#f0c5bf" opacity=".98"/>
+    <path d="M119 111 C89 116 65 136 48 162 C88 165 118 154 142 132 C134 122 128 116 119 111Z" fill="#d99e99" opacity=".82"/>
+    <path d="M189 111 C219 116 243 136 260 162 C220 165 190 154 166 132 C174 122 180 116 189 111Z" fill="#d99e99" opacity=".82"/>
+    <path d="M38 160 C85 182 126 179 154 156 C181 179 223 182 270 160 C236 199 191 203 154 174 C116 203 72 199 38 160Z" fill="#a7b390" opacity=".9"/>
+    <path d="M88 188 C123 199 185 199 221 188" fill="none" stroke="#c49a52" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>
+    <path d="M108 202 C139 210 169 210 200 202" fill="none" stroke="#c49a52" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+  </g>
+  <g transform="translate(330 74)">
+    <text x="0" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="2" fill="#766961">Sound Mind</text>
+    <text x="390" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="2" fill="#b9944f">&amp;</text>
+    <text x="442" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="2" fill="#766961">Body</text>
+    <line x1="38" y1="92" x2="238" y2="92" stroke="#c49a52" stroke-width="2" opacity=".72"/>
+    <circle cx="264" cy="92" r="4" fill="#c49a52" opacity=".72"/>
+    <path d="M289 82 C278 92 278 104 289 114 C300 104 300 92 289 82Z" fill="none" stroke="#c49a52" stroke-width="1.8" opacity=".85"/>
+    <circle cx="314" cy="92" r="4" fill="#c49a52" opacity=".72"/>
+    <line x1="340" y1="92" x2="560" y2="92" stroke="#c49a52" stroke-width="2" opacity=".72"/>
+  </g>
+</svg>
