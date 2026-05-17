@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="cosmicLogoTitle cosmicLogoDesc">
+  <title id="cosmicLogoTitle">Sound Mind &amp; Body cosmic music logo</title>
+  <desc id="cosmicLogoDesc">A circular cosmic music emblem with pink and blue flowing waves, musical notes, a glowing center light, stars, and a gold border.</desc>
+  <defs>
+    <radialGradient id="cosmicSky" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#fff8d7"/>
+      <stop offset="20%" stop-color="#ff8bd4"/>
+      <stop offset="48%" stop-color="#5b78ff"/>
+      <stop offset="76%" stop-color="#172055"/>
+      <stop offset="100%" stop-color="#080a24"/>
+    </radialGradient>
+    <radialGradient id="centerLight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fffdf2"/>
+      <stop offset="22%" stop-color="#ffe89d" stop-opacity="0.95"/>
+      <stop offset="46%" stop-color="#ff8bd4" stop-opacity="0.58"/>
+      <stop offset="76%" stop-color="#64dfff" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#64dfff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pinkWave" x1="48" y1="0" x2="464" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff5eb8"/>
+      <stop offset="48%" stop-color="#fff1c6"/>
+      <stop offset="100%" stop-color="#ff73c9"/>
+    </linearGradient>
+    <linearGradient id="blueWave" x1="44" y1="0" x2="468" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#56d9ff"/>
+      <stop offset="50%" stop-color="#dff8ff"/>
+      <stop offset="100%" stop-color="#5977ff"/>
+    </linearGradient>
+    <linearGradient id="goldRing" x1="78" y1="64" x2="434" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff0a8"/>
+      <stop offset="26%" stop-color="#d6a84d"/>
+      <stop offset="56%" stop-color="#fff7bf"/>
+      <stop offset="100%" stop-color="#b77b22"/>
+    </linearGradient>
+    <filter id="softGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="circleClip">
+      <circle cx="256" cy="256" r="242"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="256" cy="256" r="256" fill="#090b24"/>
+  <g clip-path="url(#circleClip)">
+    <rect width="512" height="512" fill="url(#cosmicSky)"/>
+    <circle cx="256" cy="256" r="152" fill="url(#centerLight)" filter="url(#softGlow)"/>
+    <circle cx="256" cy="256" r="30" fill="#fffbed" filter="url(#softGlow)"/>
+
+    <g opacity="0.95">
+      <path d="M34 279 C105 198 165 196 232 268 C307 349 369 333 478 223" fill="none" stroke="url(#pinkWave)" stroke-width="34" stroke-linecap="round" opacity="0.88"/>
+      <path d="M30 322 C104 248 172 248 241 319 C312 392 381 375 486 277" fill="none" stroke="url(#blueWave)" stroke-width="30" stroke-linecap="round" opacity="0.86"/>
+      <path d="M48 240 C126 165 184 174 250 237 C318 302 382 287 463 196" fill="none" stroke="#ffd3ef" stroke-width="11" stroke-linecap="round" opacity="0.72"/>
+      <path d="M62 361 C133 309 188 316 250 371 C318 431 382 407 452 346" fill="none" stroke="#b7f2ff" stroke-width="10" stroke-linecap="round" opacity="0.74"/>
+    </g>
+
+    <g fill="#fff7c8" opacity="0.9">
+      <circle cx="92" cy="113" r="3.5"/>
+      <circle cx="137" cy="73" r="2.6"/>
+      <circle cx="216" cy="104" r="3"/>
+      <circle cx="407" cy="127" r="2.8"/>
+      <circle cx="433" cy="199" r="2.4"/>
+      <circle cx="91" cy="407" r="2.5"/>
+      <path d="M112 184 l5 12 12 5 -12 5 -5 12 -5-12 -12-5 12-5Z"/>
+      <path d="M389 76 l4 9 9 4 -9 4 -4 9 -4-9 -9-4 9-4Z"/>
+      <path d="M420 365 l5 11 11 5 -11 5 -5 11 -5-11 -11-5 11-5Z"/>
+    </g>
+
+    <g fill="none" stroke="#fff8d7" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)">
+      <path d="M155 129 v91" stroke-width="9"/>
+      <path d="M155 129 c38 8 60 2 87-18 v32 c-26 20-51 27-87 18" stroke-width="9"/>
+      <ellipse cx="134" cy="228" rx="31" ry="21" transform="rotate(-22 134 228)" fill="#fff8d7" stroke="none" opacity="0.9"/>
+      <path d="M361 174 v72" stroke-width="8"/>
+      <path d="M361 174 c31 7 49 1 71-16 v29 c-21 17-41 23-71 16" stroke-width="8"/>
+      <ellipse cx="342" cy="254" rx="27" ry="18" transform="rotate(-22 342 254)" fill="#fff8d7" stroke="none" opacity="0.88"/>
+      <path d="M258 124 v58" stroke-width="7" opacity="0.9"/>
+      <path d="M258 124 c24 6 39 1 58-13 v24 c-18 14-35 19-58 13" stroke-width="7" opacity="0.9"/>
+      <ellipse cx="243" cy="189" rx="22" ry="15" transform="rotate(-22 243 189)" fill="#fff8d7" stroke="none" opacity="0.84"/>
+    </g>
+  </g>
+
+  <circle cx="256" cy="256" r="246" fill="none" stroke="#fff8d7" stroke-width="7" opacity="0.78"/>
+  <circle cx="256" cy="256" r="252" fill="none" stroke="url(#goldRing)" stroke-width="8"/>
+</svg>
