@@ -27,48 +27,80 @@
       </p>
     </section>
 
-    <section class="content-section tinted-section">
-      <div class="section-heading">
-        <p class="eyebrow">Featured video</p>
-        <h2>Start Here</h2>
-        <p class="small-text">
-          Beginner tip: replace the placeholder video IDs in <strong>script.js</strong> with your own YouTube IDs when your Sound Mind &amp; Body videos are ready.
-        </p>
+    <section class="content-section youtube-featured-section">
+      <div class="section-heading youtube-section-heading">
+        <h2>Featured Video</h2>
+        <p>Start with a calming affirmation video from Sound Mind &amp; Body.</p>
       </div>
 
-      <!-- Featured YouTube video placeholder: replace YOUR_FEATURED_VIDEO_ID in script.js with the video ID from your YouTube URL. -->
-      <div id="featured-video" class="featured-video" aria-label="Featured YouTube video"></div>
+      <article class="youtube-featured-card" aria-label="Featured video: Morning Affirmations for a Positive and Peaceful Day">
+        <div class="youtube-featured-thumbnail youtube-thumbnail" role="img" aria-label="Soft calming YouTube-style thumbnail for Morning Affirmations for a Positive and Peaceful Day">
+          <span class="youtube-play-button" aria-hidden="true">▶</span>
+          <div class="youtube-thumbnail-glow" aria-hidden="true"></div>
+        </div>
+        <div class="youtube-video-card-body">
+          <p class="youtube-video-label">Featured affirmation music</p>
+          <h3>Morning Affirmations for a Positive and Peaceful Day</h3>
+        </div>
+      </article>
     </section>
 
-    <section class="content-section">
-      <div class="section-heading">
-        <p class="eyebrow">More videos</p>
-        <h2>Explore More Gentle Videos</h2>
+    <section class="content-section youtube-latest-section">
+      <div class="section-heading youtube-section-heading">
+        <h2>Latest Videos</h2>
+        <p>More affirmation music, mindset support, and peaceful wellness videos.</p>
+      </div>
+
+      <div class="youtube-video-library-grid" aria-label="Latest Sound Mind & Body videos">
+        <article class="youtube-library-card youtube-library-card-confidence">
+          <div class="youtube-library-thumbnail youtube-thumbnail" role="img" aria-label="YouTube-style thumbnail for Confidence Affirmations to Start Your Day">
+            <span class="youtube-play-button" aria-hidden="true">▶</span>
+          </div>
+          <div class="youtube-video-card-body">
+            <h3>Confidence Affirmations to Start Your Day</h3>
+            <p class="youtube-video-label">Confidence</p>
+          </div>
+        </article>
+
+        <article class="youtube-library-card youtube-library-card-calm">
+          <div class="youtube-library-thumbnail youtube-thumbnail" role="img" aria-label="YouTube-style thumbnail for I Am Safe, Calm, and Supported">
+            <span class="youtube-play-button" aria-hidden="true">▶</span>
+          </div>
+          <div class="youtube-video-card-body">
+            <h3>I Am Safe, Calm, and Supported</h3>
+            <p class="youtube-video-label">Calm</p>
+          </div>
+        </article>
+
+        <article class="youtube-library-card youtube-library-card-abundance">
+          <div class="youtube-library-thumbnail youtube-thumbnail" role="img" aria-label="YouTube-style thumbnail for Manifest Abundance While You Rest">
+            <span class="youtube-play-button" aria-hidden="true">▶</span>
+          </div>
+          <div class="youtube-video-card-body">
+            <h3>Manifest Abundance While You Rest</h3>
+            <p class="youtube-video-label">Abundance</p>
+          </div>
+        </article>
+
+        <article class="youtube-library-card youtube-library-card-self-love">
+          <div class="youtube-library-thumbnail youtube-thumbnail" role="img" aria-label="YouTube-style thumbnail for Self-Love Affirmations for Healing">
+            <span class="youtube-play-button" aria-hidden="true">▶</span>
+          </div>
+          <div class="youtube-video-card-body">
+            <h3>Self-Love Affirmations for Healing</h3>
+            <p class="youtube-video-label">Self-Love</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section youtube-channel-cta-section">
+      <div class="youtube-channel-cta-card">
+        <h2>Watch More on YouTube</h2>
         <p>
-          Add more YouTube videos here as the channel grows. These spaces are ready for affirmation music, sleep support, meditation, and peaceful music uploads.
+          Visit the Sound Mind &amp; Body YouTube channel for more affirmation music, peaceful visuals, and gentle mindset support.
         </p>
-      </div>
-
-      <!-- More YouTube video placeholders: replace YOUR_SECOND_VIDEO_ID and YOUR_THIRD_VIDEO_ID in script.js with your YouTube video IDs. -->
-      <div id="video-gallery" class="video-grid" aria-label="More Sound Mind & Body videos"></div>
-    </section>
-
-    <section class="content-section">
-      <div class="section-heading">
-        <p class="eyebrow">Return to topics</p>
-        <h2>Explore by Intention</h2>
-      </div>
-      <div class="related-links topic-links">
-        <a href="../affirmation-music/">Affirmation Music</a>
-        <a href="../healing-music/">Healing Music</a>
-        <a href="../confidence-affirmations/">Confidence Affirmations</a>
-        <a href="../abundance-affirmations/">Abundance Affirmations</a>
-        <a href="../self-love-affirmations/">Self-Love Affirmations</a>
-        <a href="../morning-affirmations/">Morning Affirmations</a>
-        <a href="../sleep-affirmations/">Sleep Affirmations</a>
-        <a href="../motivation-affirmations/">Motivation Affirmations</a>
-        <a href="../peaceful-music/">Peaceful Music</a>
-        <a href="../meditation-music/">Meditation Music</a>
+        <a class="button button-primary" href="https://www.youtube.com/">Open YouTube Channel</a>
       </div>
     </section>
   </main>
@@ -76,7 +108,5 @@
   <footer>
     <p>&copy; 2026 Sound Mind &amp; Body. All rights reserved.</p>
   </footer>
-
-  <script src="../script.js"></script>
 </body>
 </html>
