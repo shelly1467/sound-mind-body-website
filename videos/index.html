@@ -27,48 +27,85 @@
       </p>
     </section>
 
-    <section class="content-section tinted-section">
-      <div class="section-heading">
-        <p class="eyebrow">Featured video</p>
-        <h2>Start Here</h2>
-        <p class="small-text">
-          Beginner tip: replace the placeholder video IDs in <strong>script.js</strong> with your own YouTube IDs when your Sound Mind &amp; Body videos are ready.
-        </p>
+    <section class="youtube-section youtube-featured-section" aria-labelledby="youtube-featured-title">
+      <div class="youtube-section-heading">
+        <h2 id="youtube-featured-title">Featured Video</h2>
+        <p>Start with a calming affirmation video from Sound Mind &amp; Body.</p>
       </div>
 
-      <!-- Featured YouTube video placeholder: replace YOUR_FEATURED_VIDEO_ID in script.js with the video ID from your YouTube URL. -->
-      <div id="featured-video" class="featured-video" aria-label="Featured YouTube video"></div>
+      <article class="youtube-featured-card">
+        <div class="youtube-featured-thumbnail youtube-thumbnail youtube-visual-ocean" role="img" aria-label="Sunset ocean nature gradient video thumbnail">
+          <div class="youtube-thumbnail-content">
+            <span class="youtube-pill youtube-featured-pill">Featured affirmation music</span>
+            <h3>Morning Affirmations for a Positive and Peaceful Day</h3>
+          </div>
+          <span class="youtube-play-button" aria-hidden="true"></span>
+          <span class="youtube-duration">11:34</span>
+        </div>
+      </article>
     </section>
 
-    <section class="content-section">
-      <div class="section-heading">
-        <p class="eyebrow">More videos</p>
-        <h2>Explore More Gentle Videos</h2>
-        <p>
-          Add more YouTube videos here as the channel grows. These spaces are ready for affirmation music, sleep support, meditation, and peaceful music uploads.
-        </p>
+    <section class="youtube-section youtube-latest-section" aria-labelledby="youtube-latest-title">
+      <div class="youtube-section-heading">
+        <h2 id="youtube-latest-title">Latest Videos</h2>
+        <p>More affirmation music, mindset support, and peaceful wellness videos.</p>
       </div>
 
-      <!-- More YouTube video placeholders: replace YOUR_SECOND_VIDEO_ID and YOUR_THIRD_VIDEO_ID in script.js with your YouTube video IDs. -->
-      <div id="video-gallery" class="video-grid" aria-label="More Sound Mind & Body videos"></div>
+      <div class="youtube-video-grid">
+        <article class="youtube-video-card">
+          <div class="youtube-card-thumbnail youtube-thumbnail youtube-visual-sunrise" role="img" aria-label="Warm sunrise mountain and flowers gradient video thumbnail">
+            <span class="youtube-play-button youtube-play-button-small" aria-hidden="true"></span>
+            <span class="youtube-duration">10:27</span>
+          </div>
+          <div class="youtube-card-body">
+            <span class="youtube-pill">Confidence</span>
+            <h3>Confidence Affirmations to Start Your Day</h3>
+          </div>
+        </article>
+
+        <article class="youtube-video-card">
+          <div class="youtube-card-thumbnail youtube-thumbnail youtube-visual-lake" role="img" aria-label="Soft purple lake and peaceful water gradient video thumbnail">
+            <span class="youtube-play-button youtube-play-button-small" aria-hidden="true"></span>
+            <span class="youtube-duration">9:45</span>
+          </div>
+          <div class="youtube-card-body">
+            <span class="youtube-pill">Calm</span>
+            <h3>I Am Safe, Calm, and Supported</h3>
+          </div>
+        </article>
+
+        <article class="youtube-video-card">
+          <div class="youtube-card-thumbnail youtube-thumbnail youtube-visual-abundance" role="img" aria-label="Golden path and sunrise gradient video thumbnail">
+            <span class="youtube-play-button youtube-play-button-small" aria-hidden="true"></span>
+            <span class="youtube-duration">12:03</span>
+          </div>
+          <div class="youtube-card-body">
+            <span class="youtube-pill">Abundance</span>
+            <h3>Manifest Abundance While You Rest</h3>
+          </div>
+        </article>
+
+        <article class="youtube-video-card">
+          <div class="youtube-card-thumbnail youtube-thumbnail youtube-visual-self-love" role="img" aria-label="Pink beach and heart in sand gradient video thumbnail">
+            <span class="youtube-play-button youtube-play-button-small" aria-hidden="true"></span>
+            <span class="youtube-duration">8:52</span>
+          </div>
+          <div class="youtube-card-body">
+            <span class="youtube-pill">Self-Love</span>
+            <h3>Self-Love Affirmations for Healing</h3>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="content-section">
-      <div class="section-heading">
-        <p class="eyebrow">Return to topics</p>
-        <h2>Explore by Intention</h2>
-      </div>
-      <div class="related-links topic-links">
-        <a href="../affirmation-music/">Affirmation Music</a>
-        <a href="../healing-music/">Healing Music</a>
-        <a href="../confidence-affirmations/">Confidence Affirmations</a>
-        <a href="../abundance-affirmations/">Abundance Affirmations</a>
-        <a href="../self-love-affirmations/">Self-Love Affirmations</a>
-        <a href="../morning-affirmations/">Morning Affirmations</a>
-        <a href="../sleep-affirmations/">Sleep Affirmations</a>
-        <a href="../motivation-affirmations/">Motivation Affirmations</a>
-        <a href="../peaceful-music/">Peaceful Music</a>
-        <a href="../meditation-music/">Meditation Music</a>
+    <section class="youtube-section youtube-channel-cta" aria-labelledby="youtube-channel-title">
+      <div class="youtube-channel-content">
+        <div>
+          <h2 id="youtube-channel-title">Watch More on YouTube</h2>
+          <p>Visit the Sound Mind &amp; Body YouTube channel for more affirmation music, peaceful visuals, and gentle mindset support.</p>
+          <a class="youtube-channel-button" href="https://www.youtube.com/">Open YouTube Channel</a>
+        </div>
+        <div class="youtube-channel-icon" aria-hidden="true"></div>
       </div>
     </section>
   </main>
