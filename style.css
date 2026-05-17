@@ -1052,3 +1052,61 @@ footer p {
     width: 100%;
   }
 }
+
+.about-hero {
+  max-width: 960px;
+  padding-top: clamp(52px, 8vw, 88px);
+  padding-bottom: clamp(52px, 8vw, 88px);
+}
+
+.about-hero h1 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.about-section {
+  max-width: 920px;
+  padding-top: 24px;
+}
+
+.about-card {
+  padding: clamp(30px, 6vw, 58px);
+  background:
+    radial-gradient(circle at top right, rgba(231, 221, 255, 0.55), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(220, 233, 221, 0.74), transparent 40%),
+    rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(86, 72, 56, 0.1);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow);
+}
+
+.about-card p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+.mission-box {
+  margin: 34px 0;
+  padding: clamp(24px, 4vw, 34px);
+  background: linear-gradient(135deg, rgba(251, 247, 241, 0.92), rgba(255, 255, 255, 0.94));
+  border: 1px solid rgba(117, 83, 217, 0.14);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+}
+
+.mission-box .eyebrow {
+  margin-bottom: 10px;
+}
+
+.mission-box p:not(.eyebrow) {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.12rem, 2.3vw, 1.35rem);
+  font-weight: 800;
+  line-height: 1.55;
+}
