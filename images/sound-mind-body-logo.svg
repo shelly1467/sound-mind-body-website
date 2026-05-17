@@ -18,9 +18,7 @@
     <path d="M108 202 C139 210 169 210 200 202" fill="none" stroke="#c49a52" stroke-width="2" stroke-linecap="round" opacity=".45"/>
   </g>
   <g transform="translate(330 74)">
-    <text x="0" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="2" fill="#766961">Sound Mind</text>
-    <text x="390" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="2" fill="#b9944f">&amp;</text>
-    <text x="442" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="2" fill="#766961">Body</text>
+    <text x="0" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="1.25" fill="#766961">Sound Mind<tspan dx="17" letter-spacing="0.15" fill="#b9944f">&amp;</tspan><tspan dx="12" letter-spacing="0.75" fill="#766961">Body</tspan></text>
     <line x1="38" y1="92" x2="238" y2="92" stroke="#c49a52" stroke-width="2" opacity=".72"/>
     <circle cx="264" cy="92" r="4" fill="#c49a52" opacity=".72"/>
     <path d="M289 82 C278 92 278 104 289 114 C300 104 300 92 289 82Z" fill="none" stroke="#c49a52" stroke-width="1.8" opacity=".85"/>
