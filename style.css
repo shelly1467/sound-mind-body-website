@@ -1029,6 +1029,24 @@ footer p {
   backdrop-filter: blur(12px);
 }
 
+
+.youtube-featured-embed {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 26px;
+  background: #e8f1e6;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+}
+
+.youtube-featured-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .youtube-featured-body {
   min-height: auto;
   padding: clamp(20px, 3vw, 28px);
@@ -1039,6 +1057,14 @@ footer p {
   font-size: clamp(1.5rem, 3.8vw, 2.35rem);
   line-height: 1.1;
   letter-spacing: -0.04em;
+}
+
+.youtube-featured-body p {
+  max-width: 700px;
+  margin: 0;
+  color: #756f70;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .youtube-sample-grid {
@@ -1181,6 +1207,10 @@ footer p {
   .youtube-featured-thumbnail {
     min-height: 300px;
     padding: 22px;
+    border-radius: 20px;
+  }
+
+  .youtube-featured-embed {
     border-radius: 20px;
   }
 
