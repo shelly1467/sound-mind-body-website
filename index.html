@@ -45,7 +45,7 @@
         </p>
       </div>
 
-      <div class="topic-grid">
+      <div class="topic-grid" data-affirmation-topics>
         <a class="topic-card" href="affirmation-music/">
           <span class="topic-icon" aria-hidden="true">✧</span>
           <span class="topic-label">Manifest Abundance</span>
@@ -126,6 +126,15 @@
           <span class="topic-label">Health</span>
           <span class="topic-note">Encouragement for your mind and body.</span>
         </a>
+      </div>
+
+      <div id="affirmation-result" class="affirmation-result" aria-live="polite" hidden>
+        <p class="affirmation-kicker">Your gentle message for</p>
+        <h3 id="affirmation-topic">Choose a topic</h3>
+        <p id="affirmation-message" class="affirmation-message"></p>
+        <p id="affirmation-support" class="affirmation-support"></p>
+        <button id="generate-another" class="button button-primary" type="button">Generate Another</button>
+        <p class="affirmation-library-note">Your message is generated from a rotating affirmation library. A true AI-powered version can be added later.</p>
       </div>
     </section>
 
