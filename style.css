@@ -482,7 +482,19 @@ details p {
 }
 
 .videos-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 0;
+}
+
+.videos-hero h1 {
+  max-width: 760px;
+}
+
+.videos-hero p:not(.eyebrow) {
+  max-width: 690px;
 }
 
 .blog-hero {
