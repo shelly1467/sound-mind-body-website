@@ -194,6 +194,7 @@ const affirmationResult = document.getElementById("affirmation-result");
 const affirmationTopic = document.getElementById("affirmation-topic");
 const affirmationMessage = document.getElementById("affirmation-message");
 const affirmationSupport = document.getElementById("affirmation-support");
+const listenAffirmationButton = document.getElementById("listen-affirmation");
 const generateAnotherButton = document.getElementById("generate-another");
 const lastAffirmationIndexes = {};
 let selectedTopic = "";
@@ -221,7 +222,33 @@ function getSupportiveSentence() {
   return supportiveSentences[Math.floor(Math.random() * supportiveSentences.length)];
 }
 
+function stopAffirmationAudio() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+function speakCurrentAffirmation() {
+  if (!("speechSynthesis" in window) || !affirmationMessage) {
+    return;
+  }
+
+  const message = affirmationMessage.textContent.trim();
+
+  if (!message) {
+    return;
+  }
+
+  stopAffirmationAudio();
+
+  const utterance = new SpeechSynthesisUtterance(message);
+  utterance.rate = 0.9;
+  utterance.pitch = 1;
+  window.speechSynthesis.speak(utterance);
+}
+
 function showAffirmation(topic, shouldScroll = true) {
+  stopAffirmationAudio();
   selectedTopic = topic;
   affirmationTopic.textContent = topic;
   affirmationMessage.textContent = getNextAffirmation(topic);
@@ -261,6 +288,14 @@ if (topicGrid && affirmationResult) {
       showAffirmation(topicLabel.textContent.trim());
     }
   });
+}
+
+if (listenAffirmationButton) {
+  if (!("speechSynthesis" in window)) {
+    listenAffirmationButton.hidden = true;
+  } else {
+    listenAffirmationButton.addEventListener("click", speakCurrentAffirmation);
+  }
 }
 
 if (generateAnotherButton) {
