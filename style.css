@@ -67,14 +67,14 @@ a {
 
 .logo-mark {
   display: block;
-  width: clamp(50px, 5vw, 64px);
-  height: clamp(50px, 5vw, 64px);
+  width: clamp(72px, 7vw, 96px);
+  height: auto;
   flex: 0 0 auto;
   border: 2px solid rgba(185, 148, 79, 0.34);
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 251, 245, 0.94), rgba(244, 216, 214, 0.52));
+  border-radius: 0;
+  background: transparent;
   box-shadow: 0 10px 26px rgba(86, 72, 56, 0.12);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .logo-text {
