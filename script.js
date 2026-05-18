@@ -195,6 +195,9 @@ const affirmationTopic = document.getElementById("affirmation-topic");
 const affirmationMessage = document.getElementById("affirmation-message");
 const affirmationSupport = document.getElementById("affirmation-support");
 const generateAnotherButton = document.getElementById("generate-another");
+const listenAffirmationButton = document.getElementById("listen-affirmation");
+// ElevenLabs API must be called from a secure backend/serverless function, not directly from GitHub Pages frontend.
+const speechSynthesisApi = window.speechSynthesis;
 const lastAffirmationIndexes = {};
 let selectedTopic = "";
 
@@ -221,7 +224,50 @@ function getSupportiveSentence() {
   return supportiveSentences[Math.floor(Math.random() * supportiveSentences.length)];
 }
 
+function stopCurrentAffirmationAudio() {
+  if (speechSynthesisApi && speechSynthesisApi.speaking) {
+    speechSynthesisApi.cancel();
+  }
+}
+
+function getCurrentAffirmationText() {
+  return [affirmationMessage.textContent, affirmationSupport.textContent]
+    .map((text) => text.trim())
+    .filter(Boolean)
+    .join(" ");
+}
+
+function speakCurrentAffirmation() {
+  const affirmationText = getCurrentAffirmationText();
+
+  if (!affirmationText) {
+    return;
+  }
+
+  if (!speechSynthesisApi || typeof SpeechSynthesisUtterance === "undefined") {
+    alert("Your browser does not support text-to-speech yet. Please read the affirmation slowly and gently.");
+    return;
+  }
+
+  stopCurrentAffirmationAudio();
+
+  const utterance = new SpeechSynthesisUtterance(affirmationText);
+  const availableVoices = speechSynthesisApi.getVoices();
+  const preferredVoice = availableVoices.find((voice) => voice.lang && voice.lang.startsWith("en"));
+
+  if (preferredVoice) {
+    utterance.voice = preferredVoice;
+  }
+
+  utterance.rate = 0.86;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+
+  speechSynthesisApi.speak(utterance);
+}
+
 function showAffirmation(topic, shouldScroll = true) {
+  stopCurrentAffirmationAudio();
   selectedTopic = topic;
   affirmationTopic.textContent = topic;
   affirmationMessage.textContent = getNextAffirmation(topic);
@@ -269,4 +315,9 @@ if (generateAnotherButton) {
       showAffirmation(selectedTopic, false);
     }
   });
+}
+
+
+if (listenAffirmationButton) {
+  listenAffirmationButton.addEventListener("click", speakCurrentAffirmation);
 }
