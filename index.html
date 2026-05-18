@@ -140,6 +140,11 @@
         <h3 id="affirmation-topic">Choose a topic</h3>
         <p id="affirmation-message" class="affirmation-message"></p>
         <p id="affirmation-support" class="affirmation-support"></p>
+        <div class="affirmation-audio" aria-label="Affirmation audio player">
+          <button id="listen-affirmation" class="button button-secondary affirmation-audio-button" type="button">Listen to This Affirmation</button>
+          <p id="affirmation-audio-status" class="affirmation-audio-status" aria-live="polite"></p>
+          <audio id="affirmation-audio-player" preload="none"></audio>
+        </div>
         <button id="generate-another" class="button button-primary" type="button">Generate Another</button>
       </div>
     </section>

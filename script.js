@@ -194,9 +194,14 @@ const affirmationResult = document.getElementById("affirmation-result");
 const affirmationTopic = document.getElementById("affirmation-topic");
 const affirmationMessage = document.getElementById("affirmation-message");
 const affirmationSupport = document.getElementById("affirmation-support");
+const listenAffirmationButton = document.getElementById("listen-affirmation");
+const affirmationAudioStatus = document.getElementById("affirmation-audio-status");
+const affirmationAudioPlayer = document.getElementById("affirmation-audio-player");
 const generateAnotherButton = document.getElementById("generate-another");
 const lastAffirmationIndexes = {};
 let selectedTopic = "";
+let currentAffirmationAudioUrl = "";
+let currentAffirmationAudioText = "";
 
 function getNextAffirmation(topic) {
   const messages = affirmationLibrary[topic] || [];
@@ -221,11 +226,123 @@ function getSupportiveSentence() {
   return supportiveSentences[Math.floor(Math.random() * supportiveSentences.length)];
 }
 
+function setAffirmationAudioStatus(message = "") {
+  if (affirmationAudioStatus) {
+    affirmationAudioStatus.textContent = message;
+  }
+}
+
+function resetAffirmationAudio() {
+  if (affirmationAudioPlayer) {
+    affirmationAudioPlayer.pause();
+    affirmationAudioPlayer.removeAttribute("src");
+    affirmationAudioPlayer.load();
+  }
+
+  if (currentAffirmationAudioUrl) {
+    URL.revokeObjectURL(currentAffirmationAudioUrl);
+  }
+
+  currentAffirmationAudioUrl = "";
+  currentAffirmationAudioText = "";
+
+  if (listenAffirmationButton) {
+    listenAffirmationButton.disabled = false;
+    listenAffirmationButton.classList.remove("is-playing");
+    listenAffirmationButton.textContent = "Listen to This Affirmation";
+  }
+
+  setAffirmationAudioStatus("");
+}
+
+function getAffirmationAudioText() {
+  const topic = affirmationTopic ? affirmationTopic.textContent.trim() : "";
+  const message = affirmationMessage ? affirmationMessage.textContent.trim() : "";
+
+  return [topic, message].filter(Boolean).join(". ");
+}
+
+async function generateAffirmationAudio(text) {
+  const response = await fetch("/api/elevenlabs-tts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ text })
+  });
+
+  if (!response.ok) {
+    let errorMessage = "Audio is unavailable right now. Please try again soon.";
+
+    try {
+      const errorData = await response.json();
+      if (errorData && errorData.error) {
+        errorMessage = errorData.error;
+      }
+    } catch (error) {
+      // Keep the calm default message when the response is not JSON.
+    }
+
+    throw new Error(errorMessage);
+  }
+
+  return response.blob();
+}
+
+async function playAffirmationAudio() {
+  if (!affirmationAudioPlayer || !listenAffirmationButton) {
+    return;
+  }
+
+  if (!affirmationAudioPlayer.paused) {
+    affirmationAudioPlayer.pause();
+    return;
+  }
+
+  const audioText = getAffirmationAudioText();
+
+  if (!audioText) {
+    setAffirmationAudioStatus("Choose a topic first, then listen to your affirmation.");
+    return;
+  }
+
+  if (!currentAffirmationAudioUrl || currentAffirmationAudioText !== audioText) {
+    listenAffirmationButton.disabled = true;
+    listenAffirmationButton.textContent = "Creating your audio...";
+    setAffirmationAudioStatus("Preparing a calm voice reading with ElevenLabs.");
+
+    try {
+      const audioBlob = await generateAffirmationAudio(audioText);
+
+      if (currentAffirmationAudioUrl) {
+        URL.revokeObjectURL(currentAffirmationAudioUrl);
+      }
+
+      currentAffirmationAudioUrl = URL.createObjectURL(audioBlob);
+      currentAffirmationAudioText = audioText;
+      affirmationAudioPlayer.src = currentAffirmationAudioUrl;
+    } catch (error) {
+      listenAffirmationButton.textContent = "Listen to This Affirmation";
+      setAffirmationAudioStatus(error.message);
+      return;
+    } finally {
+      listenAffirmationButton.disabled = false;
+    }
+  }
+
+  try {
+    await affirmationAudioPlayer.play();
+  } catch (error) {
+    setAffirmationAudioStatus("Please tap the button again to start the audio.");
+  }
+}
+
 function showAffirmation(topic, shouldScroll = true) {
   selectedTopic = topic;
   affirmationTopic.textContent = topic;
   affirmationMessage.textContent = getNextAffirmation(topic);
   affirmationSupport.textContent = getSupportiveSentence();
+  resetAffirmationAudio();
   affirmationResult.hidden = false;
 
   document.querySelectorAll(".topic-card.is-selected").forEach((card) => {
@@ -268,5 +385,29 @@ if (generateAnotherButton) {
     if (selectedTopic) {
       showAffirmation(selectedTopic, false);
     }
+  });
+}
+
+if (listenAffirmationButton) {
+  listenAffirmationButton.addEventListener("click", playAffirmationAudio);
+}
+
+if (affirmationAudioPlayer && listenAffirmationButton) {
+  affirmationAudioPlayer.addEventListener("play", () => {
+    listenAffirmationButton.classList.add("is-playing");
+    listenAffirmationButton.textContent = "Pause Affirmation";
+    setAffirmationAudioStatus("Playing your affirmation.");
+  });
+
+  affirmationAudioPlayer.addEventListener("pause", () => {
+    listenAffirmationButton.classList.remove("is-playing");
+    listenAffirmationButton.textContent = "Play Affirmation";
+    setAffirmationAudioStatus("Audio paused.");
+  });
+
+  affirmationAudioPlayer.addEventListener("ended", () => {
+    listenAffirmationButton.classList.remove("is-playing");
+    listenAffirmationButton.textContent = "Listen Again";
+    setAffirmationAudioStatus("Your affirmation audio has ended.");
   });
 }
