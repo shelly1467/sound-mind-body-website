@@ -194,9 +194,12 @@ const affirmationResult = document.getElementById("affirmation-result");
 const affirmationTopic = document.getElementById("affirmation-topic");
 const affirmationMessage = document.getElementById("affirmation-message");
 const affirmationSupport = document.getElementById("affirmation-support");
+const listenAffirmationButton = document.getElementById("listen-affirmation");
 const generateAnotherButton = document.getElementById("generate-another");
+const listenButtonDefaultText = "Listen to This Affirmation";
 const lastAffirmationIndexes = {};
 let selectedTopic = "";
+let activeAffirmationSpeech = null;
 
 function getNextAffirmation(topic) {
   const messages = affirmationLibrary[topic] || [];
@@ -221,7 +224,44 @@ function getSupportiveSentence() {
   return supportiveSentences[Math.floor(Math.random() * supportiveSentences.length)];
 }
 
+function resetAffirmationSpeech() {
+  if (window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+  }
+
+  activeAffirmationSpeech = null;
+
+  if (listenAffirmationButton) {
+    listenAffirmationButton.textContent = listenButtonDefaultText;
+  }
+}
+
+function speakCurrentAffirmation() {
+  if (!listenAffirmationButton || !affirmationMessage || !window.speechSynthesis) {
+    return;
+  }
+
+  const message = affirmationMessage.textContent.trim();
+
+  if (!message) {
+    return;
+  }
+
+  resetAffirmationSpeech();
+
+  activeAffirmationSpeech = new SpeechSynthesisUtterance(message);
+  activeAffirmationSpeech.rate = 0.9;
+  activeAffirmationSpeech.pitch = 1;
+
+  activeAffirmationSpeech.addEventListener("end", resetAffirmationSpeech);
+  activeAffirmationSpeech.addEventListener("error", resetAffirmationSpeech);
+
+  listenAffirmationButton.textContent = "Speaking…";
+  window.speechSynthesis.speak(activeAffirmationSpeech);
+}
+
 function showAffirmation(topic, shouldScroll = true) {
+  resetAffirmationSpeech();
   selectedTopic = topic;
   affirmationTopic.textContent = topic;
   affirmationMessage.textContent = getNextAffirmation(topic);
@@ -261,6 +301,10 @@ if (topicGrid && affirmationResult) {
       showAffirmation(topicLabel.textContent.trim());
     }
   });
+}
+
+if (listenAffirmationButton) {
+  listenAffirmationButton.addEventListener("click", speakCurrentAffirmation);
 }
 
 if (generateAnotherButton) {

@@ -244,6 +244,20 @@ h3 {
   border: 1px solid rgba(117, 83, 217, 0.18);
 }
 
+.button-listen {
+  margin: 0 auto 14px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--purple-dark);
+  border: 1px solid rgba(117, 83, 217, 0.2);
+  box-shadow: 0 10px 22px rgba(86, 72, 56, 0.1);
+}
+
+.button-listen:hover,
+.button-listen:focus {
+  background: var(--cream);
+  border-color: rgba(117, 83, 217, 0.34);
+}
+
 .hero-card,
 .info-card,
 .topic-card,
