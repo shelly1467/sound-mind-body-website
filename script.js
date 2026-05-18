@@ -2,6 +2,12 @@
 // Beginner tip: Replace only the text inside each id value below.
 // Example: if your YouTube link is https://www.youtube.com/watch?v=abc123XYZ,
 // the video ID is abc123XYZ.
+(function removeHeaderLogoBorder() {
+  const logoStyle = document.createElement("style");
+  logoStyle.textContent = ".logo-mark { border: 0 !important; box-shadow: none !important; background: transparent !important; }";
+  document.head.appendChild(logoStyle);
+})();
+
 const featuredVideo = {
   title: "Featured Affirmation Video",
   id: "YOUR_FEATURED_VIDEO_ID" // Replace this with your featured YouTube video ID.
