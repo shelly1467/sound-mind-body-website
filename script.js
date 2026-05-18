@@ -195,6 +195,9 @@ const affirmationTopic = document.getElementById("affirmation-topic");
 const affirmationMessage = document.getElementById("affirmation-message");
 const affirmationSupport = document.getElementById("affirmation-support");
 const generateAnotherButton = document.getElementById("generate-another");
+const listenAffirmationButton = document.getElementById("listen-affirmation");
+const listenAffirmationButtonText = "Listen to This Affirmation";
+const speakingAffirmationButtonText = "Speaking…";
 const lastAffirmationIndexes = {};
 let selectedTopic = "";
 
@@ -219,6 +222,43 @@ function getNextAffirmation(topic) {
 
 function getSupportiveSentence() {
   return supportiveSentences[Math.floor(Math.random() * supportiveSentences.length)];
+}
+
+// ElevenLabs API must be called from a secure backend/serverless function, not directly from GitHub Pages frontend.
+function resetListenAffirmationButton() {
+  if (listenAffirmationButton) {
+    listenAffirmationButton.textContent = listenAffirmationButtonText;
+  }
+}
+
+function stopAffirmationSpeech() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+
+  resetListenAffirmationButton();
+}
+
+function speakCurrentAffirmation() {
+  if (!affirmationMessage || !listenAffirmationButton || !("speechSynthesis" in window)) {
+    return;
+  }
+
+  const message = affirmationMessage.textContent.trim();
+
+  if (!message) {
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+  listenAffirmationButton.textContent = speakingAffirmationButtonText;
+
+  const affirmationSpeech = new SpeechSynthesisUtterance(message);
+
+  affirmationSpeech.addEventListener("end", resetListenAffirmationButton);
+  affirmationSpeech.addEventListener("error", resetListenAffirmationButton);
+
+  window.speechSynthesis.speak(affirmationSpeech);
 }
 
 function showAffirmation(topic, shouldScroll = true) {
@@ -263,8 +303,14 @@ if (topicGrid && affirmationResult) {
   });
 }
 
+if (listenAffirmationButton) {
+  listenAffirmationButton.addEventListener("click", speakCurrentAffirmation);
+}
+
 if (generateAnotherButton) {
   generateAnotherButton.addEventListener("click", () => {
+    stopAffirmationSpeech();
+
     if (selectedTopic) {
       showAffirmation(selectedTopic, false);
     }
