@@ -194,6 +194,7 @@ const affirmationResult = document.getElementById("affirmation-result");
 const affirmationTopic = document.getElementById("affirmation-topic");
 const affirmationMessage = document.getElementById("affirmation-message");
 const affirmationSupport = document.getElementById("affirmation-support");
+const listenAffirmationButton = document.getElementById("listen-affirmation");
 const generateAnotherButton = document.getElementById("generate-another");
 const lastAffirmationIndexes = {};
 let selectedTopic = "";
@@ -219,6 +220,41 @@ function getNextAffirmation(topic) {
 
 function getSupportiveSentence() {
   return supportiveSentences[Math.floor(Math.random() * supportiveSentences.length)];
+}
+
+function resetListenAffirmationButton() {
+  if (listenAffirmationButton) {
+    listenAffirmationButton.textContent = "Listen to This Affirmation";
+  }
+}
+
+function stopAffirmationSpeech() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+
+  resetListenAffirmationButton();
+}
+
+function speakCurrentAffirmation() {
+  if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+    return;
+  }
+
+  const affirmationText = affirmationMessage.textContent.trim();
+
+  if (!affirmationText) {
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(affirmationText);
+  utterance.addEventListener("end", resetListenAffirmationButton);
+  utterance.addEventListener("error", resetListenAffirmationButton);
+
+  listenAffirmationButton.textContent = "Speaking…";
+  window.speechSynthesis.speak(utterance);
 }
 
 function showAffirmation(topic, shouldScroll = true) {
@@ -263,8 +299,14 @@ if (topicGrid && affirmationResult) {
   });
 }
 
+if (listenAffirmationButton) {
+  listenAffirmationButton.addEventListener("click", speakCurrentAffirmation);
+}
+
 if (generateAnotherButton) {
   generateAnotherButton.addEventListener("click", () => {
+    stopAffirmationSpeech();
+
     if (selectedTopic) {
       showAffirmation(selectedTopic, false);
     }
