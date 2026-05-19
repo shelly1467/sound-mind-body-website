@@ -1,0 +1,18 @@
+{
+  "name": "Sound Mind & Body",
+  "short_name": "SoundMindBody",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7b4fe4",
+  "description": "Gentle wellness affirmations, motivation, and mindful support.",
+  "icons": [
+    {
+      "src": "images/sound-mind-body-cosmic-music-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
