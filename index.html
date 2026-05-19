@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Explore peaceful Sound Mind & Body topics for affirmation music, healing music, confidence, abundance, self-love, sleep, meditation, and daily motivation." />
   <title>Explore Wellness Topics | Sound Mind &amp; Body</title>
+  <meta name="theme-color" content="#7b4fe4" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/images/sound-mind-body-cosmic-music-logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <style>
     .logo-mark {
@@ -173,5 +176,12 @@
   </footer>
   <script src="script.js"></script>
   <script src="elevenlabs-audio.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
