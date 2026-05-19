@@ -1,0 +1,16 @@
+{
+  "name": "Sound Mind & Body",
+  "short_name": "Sound Mind",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#7b4fe4",
+  "background_color": "#fffaf5",
+  "icons": [
+    {
+      "src": "/images/sound-mind-body-cosmic-music-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
