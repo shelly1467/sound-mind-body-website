@@ -16,11 +16,21 @@
       background: transparent;
     }
 
-    .welcome-avatar {
-      width: min(300px, calc(100vw - 28px));
+    .home-hero .welcome-avatar {
+      position: static !important;
+      display: block;
+      width: min(300px, 100%);
+      justify-self: center;
+      align-self: center;
       padding: 8px;
-      right: 16px;
-      bottom: 16px;
+      right: auto !important;
+      left: auto !important;
+      top: auto !important;
+      bottom: auto !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: none !important;
     }
 
     .welcome-avatar-video-wrap video {
@@ -29,10 +39,7 @@
       object-position: top center;
     }
 
-    .welcome-avatar-message {
-      display: none;
-    }
-
+    .welcome-avatar-message,
     .welcome-avatar-close {
       display: none !important;
     }
@@ -43,24 +50,16 @@
       font-size: 0.9rem;
     }
 
-    @media (min-width: 901px) {
-      .intention-card {
-        visibility: hidden;
-      }
-
-      .welcome-avatar {
-        top: 220px !important;
-        left: 65vw !important;
-        right: auto !important;
-        bottom: auto !important;
+    @media (max-width: 900px) {
+      .home-hero .welcome-avatar {
+        width: min(260px, 100%);
+        margin: 0 auto;
       }
     }
 
     @media (max-width: 680px) {
-      .welcome-avatar {
-        width: min(180px, calc(100vw - 20px));
-        right: 10px;
-        bottom: 10px;
+      .home-hero .welcome-avatar {
+        width: min(180px, 100%);
       }
 
       .welcome-avatar-video-wrap video {
@@ -98,10 +97,18 @@
           <a href="#topics" class="button button-primary">Choose a Topic</a>
         </div>
       </div>
-      <div class="hero-card intention-card" aria-label="Daily intention">
-        <span>Today&apos;s intention</span>
-        <strong>Today&apos;s affirmation will meet me where I am.</strong>
-      </div>
+      <aside class="welcome-avatar" id="welcome-avatar" aria-label="Welcome message from Sound Mind and Body">
+        <button class="welcome-avatar-close" id="welcome-avatar-close" type="button" aria-label="Close welcome message">×</button>
+        <div class="welcome-avatar-video-wrap">
+          <video id="welcome-avatar-video" playsinline preload="metadata">
+            <source src="soundmind-avatar (1).mp4" type="video/mp4" />
+          </video>
+        </div>
+        <p class="welcome-avatar-message">
+          Welcome to Sound Mind &amp; Body. This is your peaceful space for affirmation music, calming messages, and uplifting words for the mind and spirit. Explore the music, visit the affirmation tabs, and let this space bring you back to peace, confidence, and balance.
+        </p>
+        <button class="button welcome-avatar-audio-button" id="welcome-avatar-audio-button" type="button">Tap to Hear Welcome</button>
+      </aside>
     </section>
 
     <section id="topics" class="topics-section" aria-labelledby="topics-heading">
@@ -232,19 +239,6 @@
   <footer>
     <p>&copy; 2026 Sound Mind &amp; Body. All rights reserved.</p>
   </footer>
-  <aside class="welcome-avatar" id="welcome-avatar" aria-label="Welcome message from Sound Mind and Body" hidden>
-    <button class="welcome-avatar-close" id="welcome-avatar-close" type="button" aria-label="Close welcome message">×</button>
-    <div class="welcome-avatar-video-wrap">
-      <video id="welcome-avatar-video" playsinline preload="metadata">
-        <source src="assets/avatar/soundmind-avatar.webm" type="video/webm" />
-        <source src="assets/avatar/soundmind-avatar.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <p class="welcome-avatar-message">
-      Welcome to Sound Mind &amp; Body. This is your peaceful space for affirmation music, calming messages, and uplifting words for the mind and spirit. Explore the music, visit the affirmation tabs, and let this space bring you back to peace, confidence, and balance.
-    </p>
-    <button class="button welcome-avatar-audio-button" id="welcome-avatar-audio-button" type="button">Tap to Hear Welcome</button>
-  </aside>
   <script src="script.js"></script>
   <script src="elevenlabs-audio.js"></script>
 </body>
