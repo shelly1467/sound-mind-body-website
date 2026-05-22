@@ -17,14 +17,14 @@
     }
 
     .welcome-avatar {
-      width: min(220px, calc(100vw - 28px));
+      width: min(300px, calc(100vw - 28px));
       padding: 8px;
       right: 16px;
       bottom: 16px;
     }
 
     .welcome-avatar-video-wrap video {
-      max-height: 285px;
+      max-height: 340px;
       object-fit: cover;
       object-position: top center;
     }
@@ -37,6 +37,18 @@
       min-height: 38px;
       padding: 9px 14px;
       font-size: 0.9rem;
+    }
+
+    @media (min-width: 901px) {
+      .intention-card {
+        visibility: hidden;
+      }
+
+      .welcome-avatar {
+        top: 240px;
+        right: max(24px, calc((100vw - 1120px) / 2 + 260px));
+        bottom: auto;
+      }
     }
 
     @media (max-width: 680px) {
