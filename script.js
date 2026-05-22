@@ -331,3 +331,74 @@ if ("serviceWorker" in navigator && window.isSecureContext) {
     });
   });
 }
+
+async function setupWelcomeAvatar() {
+  const welcomeAvatar = document.getElementById("welcome-avatar");
+  const welcomeAvatarVideo = document.getElementById("welcome-avatar-video");
+  const welcomeAvatarAudioButton = document.getElementById("welcome-avatar-audio-button");
+  const welcomeAvatarClose = document.getElementById("welcome-avatar-close");
+
+  if (!welcomeAvatar || !welcomeAvatarVideo || !welcomeAvatarAudioButton || !welcomeAvatarClose) {
+    return;
+  }
+
+  const avatarSources = [
+    "assets/avatar/soundmind-avatar.webm",
+    "assets/avatar/soundmind-avatar.mp4"
+  ];
+
+  async function findExistingAvatarSource() {
+    for (const sourcePath of avatarSources) {
+      try {
+        const response = await fetch(sourcePath, { method: "HEAD", cache: "no-store" });
+        if (response.ok) {
+          return sourcePath;
+        }
+      } catch (error) {
+        console.warn("Avatar source check failed:", error);
+      }
+    }
+    return "";
+  }
+
+  const chosenSource = await findExistingAvatarSource();
+
+  if (!chosenSource) {
+    welcomeAvatar.hidden = true;
+    return;
+  }
+
+  welcomeAvatarVideo.src = chosenSource;
+  welcomeAvatarVideo.muted = true;
+  welcomeAvatarVideo.controls = false;
+  welcomeAvatar.hidden = false;
+
+  function toggleAvatarVisibilityByScroll() {
+    welcomeAvatar.classList.toggle("is-hidden-on-scroll", window.scrollY > 250);
+  }
+
+  welcomeAvatarAudioButton.addEventListener("click", async () => {
+    welcomeAvatarVideo.pause();
+    welcomeAvatarVideo.currentTime = 0;
+    welcomeAvatarVideo.muted = false;
+    try {
+      await welcomeAvatarVideo.play();
+    } catch (error) {
+      console.warn("Welcome avatar audio playback was blocked:", error);
+    }
+  });
+
+  welcomeAvatarClose.addEventListener("click", () => {
+    welcomeAvatarVideo.pause();
+    welcomeAvatar.hidden = true;
+  });
+
+  welcomeAvatarVideo.addEventListener("error", () => {
+    welcomeAvatar.hidden = true;
+  });
+
+  window.addEventListener("scroll", toggleAvatarVisibilityByScroll, { passive: true });
+  toggleAvatarVisibilityByScroll();
+}
+
+setupWelcomeAvatar();
