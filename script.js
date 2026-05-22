@@ -344,7 +344,8 @@ async function setupWelcomeAvatar() {
 
   const avatarSources = [
     "assets/avatar/soundmind-avatar.webm",
-    "assets/avatar/soundmind-avatar.mp4"
+    "assets/avatar/soundmind-avatar.mp4",
+    "soundmind-avatar (1).mp4"
   ];
 
   async function findExistingAvatarSource() {
