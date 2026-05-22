@@ -332,53 +332,30 @@ if ("serviceWorker" in navigator && window.isSecureContext) {
   });
 }
 
-async function setupWelcomeAvatar() {
+function setupWelcomeAvatar() {
   const welcomeAvatar = document.getElementById("welcome-avatar");
   const welcomeAvatarVideo = document.getElementById("welcome-avatar-video");
   const welcomeAvatarAudioButton = document.getElementById("welcome-avatar-audio-button");
-  const welcomeAvatarClose = document.getElementById("welcome-avatar-close");
 
-  if (!welcomeAvatar || !welcomeAvatarVideo || !welcomeAvatarAudioButton || !welcomeAvatarClose) {
+  if (!welcomeAvatar || !welcomeAvatarVideo || !welcomeAvatarAudioButton) {
     return;
   }
 
-  const avatarSources = [
-    "assets/avatar/soundmind-avatar.webm",
-    "assets/avatar/soundmind-avatar.mp4",
-    "soundmind-avatar (1).mp4"
-  ];
+  const avatarSource = "soundmind-avatar (1).mp4";
 
-  async function findExistingAvatarSource() {
-    for (const sourcePath of avatarSources) {
-      try {
-        const response = await fetch(sourcePath, { method: "HEAD", cache: "no-store" });
-        if (response.ok) {
-          return sourcePath;
-        }
-      } catch (error) {
-        console.warn("Avatar source check failed:", error);
-      }
-    }
-    return "";
-  }
-
-  const chosenSource = await findExistingAvatarSource();
-
-  if (!chosenSource) {
-    welcomeAvatar.hidden = true;
-    return;
-  }
-
-  welcomeAvatarVideo.src = chosenSource;
+  welcomeAvatarVideo.src = avatarSource;
   welcomeAvatarVideo.muted = true;
   welcomeAvatarVideo.controls = false;
   welcomeAvatar.hidden = false;
+  welcomeAvatar.classList.remove("is-hidden-on-scroll");
 
-  function toggleAvatarVisibilityByScroll() {
-    welcomeAvatar.classList.toggle("is-hidden-on-scroll", window.scrollY > 250);
+  function keepAvatarVisible() {
+    welcomeAvatar.hidden = false;
+    welcomeAvatar.classList.remove("is-hidden-on-scroll");
   }
 
   welcomeAvatarAudioButton.addEventListener("click", async () => {
+    keepAvatarVisible();
     welcomeAvatarVideo.pause();
     welcomeAvatarVideo.currentTime = 0;
     welcomeAvatarVideo.muted = false;
@@ -389,17 +366,11 @@ async function setupWelcomeAvatar() {
     }
   });
 
-  welcomeAvatarClose.addEventListener("click", () => {
-    welcomeAvatarVideo.pause();
-    welcomeAvatar.hidden = true;
-  });
-
-  welcomeAvatarVideo.addEventListener("error", () => {
-    welcomeAvatar.hidden = true;
-  });
-
-  window.addEventListener("scroll", toggleAvatarVisibilityByScroll, { passive: true });
-  toggleAvatarVisibilityByScroll();
+  window.addEventListener("scroll", keepAvatarVisible, { passive: true });
+  window.addEventListener("pageshow", keepAvatarVisible);
+  window.addEventListener("focus", keepAvatarVisible);
+  setTimeout(keepAvatarVisible, 250);
+  setTimeout(keepAvatarVisible, 1200);
 }
 
 setupWelcomeAvatar();
