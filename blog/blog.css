@@ -519,6 +519,56 @@
   transform: translateX(-50%);
 }
 
+.blog-topics .visual-power {
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.78), transparent 36%),
+    linear-gradient(150deg, rgba(244, 216, 214, 0.88), rgba(231, 221, 255, 0.84), rgba(255, 224, 178, 0.74));
+}
+
+.blog-topics .power-glow {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 245, 212, 0.54);
+  box-shadow: 0 0 34px rgba(255, 207, 137, 0.46);
+  transform: translateX(-50%);
+}
+
+.blog-topics .power-stem {
+  position: absolute;
+  left: 50%;
+  bottom: 23px;
+  width: 3px;
+  height: 50px;
+  border-radius: 99px;
+  background: rgba(184, 121, 98, 0.44);
+  transform: translateX(-50%);
+}
+
+.blog-topics .power-stem::before,
+.blog-topics .power-stem::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 30px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.blog-topics .power-stem::before {
+  right: 2px;
+  transform: rotate(-22deg);
+}
+
+.blog-topics .power-stem::after {
+  left: 2px;
+  transform: rotate(22deg);
+}
+
 @media (max-width: 1100px) {
   .blog-topics .article-card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
