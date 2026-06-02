@@ -1,3 +1,4 @@
-# Netlify redirect rules for Sound Mind & Body.
-# Keep the Reprogram Your Subconscious Mind article on one clean canonical URL.
-/blog/reprogram-your-subconscious-mind  /blog/reprogram-your-subconscious-mind/  301!
+# Netlify rules for Sound Mind & Body.
+# Serve this article directly with 200 rewrites so Google Search Console does not hit a trailing-slash redirect chain.
+/blog/reprogram-your-subconscious-mind/  /blog/reprogram-your-subconscious-mind/index.html  200!
+/blog/reprogram-your-subconscious-mind   /blog/reprogram-your-subconscious-mind/index.html  200!
