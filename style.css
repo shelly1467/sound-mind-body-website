@@ -1014,6 +1014,7 @@ footer p {
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 18px 36px rgba(28, 43, 33, 0.28);
   transform: translate(-50%, -50%);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .youtube-play-button::before {
@@ -1110,28 +1111,6 @@ footer p {
     linear-gradient(180deg, rgba(24, 31, 31, 0.03), rgba(18, 30, 24, 0.38));
 }
 
-.youtube-embed-label {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 4;
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.24);
-  color: var(--white);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-  backdrop-filter: blur(12px);
-}
-
-
 .youtube-featured-embed {
   position: relative;
   overflow: hidden;
@@ -1141,12 +1120,48 @@ footer p {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36);
 }
 
-.youtube-featured-embed iframe {
+.youtube-featured-embed iframe,
+.youtube-card-embed iframe,
+.youtube-lite-button,
+.youtube-lite-button img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.youtube-featured-embed iframe,
+.youtube-card-embed iframe {
   border: 0;
+}
+
+.youtube-lite-button {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.youtube-lite-button img {
+  object-fit: cover;
+}
+
+.youtube-lite-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24, 31, 31, 0.03), rgba(18, 30, 24, 0.28));
+}
+
+.youtube-lite-button:hover .youtube-play-button,
+.youtube-lite-button:focus-visible .youtube-play-button {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.youtube-lite-button:focus-visible {
+  outline: 3px solid rgba(79, 131, 86, 0.65);
+  outline-offset: -3px;
 }
 
 .youtube-featured-body {
@@ -1198,14 +1213,6 @@ footer p {
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: #e8f1e6;
-}
-
-.youtube-card-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .youtube-card-body {
