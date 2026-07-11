@@ -71,6 +71,31 @@ if (videoGallery) {
   videoGallery.innerHTML = moreVideos.map((video) => createVideoCard(video)).join("");
 }
 
+
+// Lightweight YouTube embeds: load the iframe only after a visitor clicks a thumbnail.
+document.querySelectorAll(".youtube-lite-embed").forEach((embed) => {
+  const button = embed.querySelector(".youtube-lite-button");
+  const videoId = embed.dataset.youtubeId;
+
+  if (!button || !videoId) {
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    const iframe = document.createElement("iframe");
+    const title = button.getAttribute("aria-label")?.replace(/^Play\s+/i, "") || "Sound Mind & Body YouTube video";
+
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    iframe.title = title;
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+
+    embed.replaceChildren(iframe);
+    iframe.focus();
+  });
+});
+
 // Gentle Wellness AI Generator (rotating local affirmation library)
 const affirmationLibrary = {
   "Manifest Abundance": [
