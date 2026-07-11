@@ -2,3 +2,8 @@
 # Serve this article directly with 200 rewrites so Google Search Console does not hit a trailing-slash redirect chain.
 /blog/reprogram-your-subconscious-mind/  /blog/reprogram-your-subconscious-mind/index.html  200!
 /blog/reprogram-your-subconscious-mind   /blog/reprogram-your-subconscious-mind/index.html  200!
+# Redirect retired generator topic routes back to the homepage.
+/relationships/  /  301!
+/relationships   /  301!
+/health/          /  301!
+/health           /  301!
