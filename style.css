@@ -303,8 +303,13 @@ details {
   align-items: center;
   min-height: 150px;
   padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(86, 72, 56, 0.1);
+  appearance: none;
   color: var(--ink);
+  font: inherit;
+  text-align: left;
   text-decoration: none;
+  cursor: pointer;
   box-shadow: var(--soft-shadow);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
