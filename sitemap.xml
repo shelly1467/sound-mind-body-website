@@ -115,4 +115,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://soundmindanbody.com/affirmation-music/</loc>
+  </url>
+  <url>
+    <loc>https://soundmindanbody.com/self-love-affirmations/</loc>
+  </url>
+  <url>
+    <loc>https://soundmindanbody.com/confidence-affirmations/</loc>
+  </url>
+  <url>
+    <loc>https://soundmindanbody.com/abundance-affirmations/</loc>
+  </url>
+  <url>
+    <loc>https://soundmindanbody.com/healing-music/</loc>
+  </url>
 </urlset>
