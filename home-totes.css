@@ -1,0 +1,27 @@
+/* Homepage tote section only. */
+.tote-feature { max-width: 980px; padding: 8px 20px 42px; }
+.tote-feature-panel { padding: clamp(24px,4vw,40px); border:1px solid rgba(86,72,56,.12); border-radius:32px; background:linear-gradient(140deg,#f1ecfa,#f5eee5 55%,#edf3ec); box-shadow:var(--soft-shadow); }
+.tote-feature-heading { max-width:740px; margin:0 auto 26px; text-align:center; }
+.tote-feature-heading .eyebrow { margin-bottom:10px; color:#735c45; }
+.tote-feature-heading h2 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.75rem,3.5vw,2.4rem); line-height:1.18; letter-spacing:-.025em; }
+.tote-feature-heading>p:last-child { color:var(--muted); margin:0; font-size:1.05rem; }
+.tote-product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; padding:0; margin:0; list-style:none; }
+.tote-product-grid li { min-width:0; }
+.tote-product-link { display:block; height:100%; color:var(--ink); text-decoration:none; background:#fff; border:1px solid rgba(86,72,56,.12); border-radius:20px; overflow:hidden; }
+.tote-product-link:hover { border-color:var(--purple-dark); }
+.tote-product-link:focus-visible,.tote-feature .button:focus-visible { outline:3px solid var(--purple-dark); outline-offset:4px; }
+.tote-product-link img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:#f8f8f8; }
+.tote-product-copy { padding:18px 16px 20px; }
+.tote-product-copy h3 { margin:0 0 12px; font-size:1rem; line-height:1.35; letter-spacing:0; }
+.tote-product-copy span { color:var(--purple-dark); font-size:.88rem; font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+.tote-feature-action { display:flex; justify-content:center; margin-top:26px; }
+.tote-feature-action .button { max-width:100%; text-align:center; white-space:normal; }
+@media(max-width:680px) {
+ .tote-feature { padding:0 18px 32px; }
+ .tote-feature-panel { padding:26px 20px; border-radius:26px; }
+ .tote-product-grid { grid-template-columns:minmax(0,1fr); gap:18px; max-width:380px; margin:0 auto; }
+ .tote-product-link img { max-height:320px; }
+ .tote-product-copy { padding:16px 18px 20px; }
+ .tote-feature-action .button { width:100%; }
+}
+
