@@ -129,6 +129,37 @@
         font-size: 0.78rem;
       }
     }
+
+    /* Keep the homepage opening readable without changing its content. */
+    .home-hero {
+      min-height: 0;
+      padding-top: 40px;
+      padding-bottom: 32px;
+    }
+
+    .home-hero .hero-content {
+      padding: 40px;
+    }
+
+    .home-hero h1 {
+      font-size: clamp(2rem, 4.75vw, 3.5rem);
+      line-height: 1.12;
+    }
+
+    @media (max-width: 680px) {
+      .home-hero {
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+
+      .home-hero .hero-content {
+        padding: 28px 24px;
+      }
+
+      .home-hero h1 {
+        font-size: clamp(2rem, 8.5vw, 2.25rem);
+      }
+    }
   </style>
 </head>
 <body>
