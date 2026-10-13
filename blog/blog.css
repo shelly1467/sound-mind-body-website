@@ -670,3 +670,27 @@
     min-height: 150px;
   }
 }
+
+/* Compact article openings; directory and body typography stay unchanged. */
+.blog-hero.article-hero {
+  min-height: 0;
+  margin-top: 32px;
+  padding: 40px 48px;
+}
+
+.blog-hero.article-hero > h1 {
+  margin-bottom: 16px;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+.blog-hero.article-hero > p:not(.eyebrow) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media (max-width: 680px) {
+  .blog-hero.article-hero {
+    margin-top: 20px;
+    padding: 28px 20px;
+  }
+}
